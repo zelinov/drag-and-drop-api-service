@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  undertow:
+    threads:
+      io: 12
+      worker: 128
+  error:
+    path: /error
+
+spring:
+  application:
+    name: drag-and-drop-api-service
+  main:
+    banner-mode: off
+  profiles:
+    active: local
+  datasource:
+    url: ${DATA_SOURCE_URL:jdbc:postgresql://localhost:6432/drag_and_drop_api_service}
+    username: ${DATA_SOURCE_USERNAME:drag_and_drop_api_service_user}
+    password: ${DATA_SOURCE_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 16384
+      maximum-pool-size: 256
+      minimum-idle: 4
+      idle-timeout: 16384
+  liquibase:
+    change-log: classpath:/migrations/changelog.yml
+
+app:
+  window-size: ${WINDOW_SIZE:1024}
+  load-factor: ${LOAD_FACTOR:0.9}

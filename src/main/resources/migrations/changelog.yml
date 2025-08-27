@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1756122847_create_items_table
+      author: Ivan Zelinov
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: classpath:/migrations/sql/1756122847_create_items_table.sql
+#  - changeSet:
+#      id: 1756215609_data
+#      author: Ivan Zelinov
+#      changes:
+#        - sqlFile:
+#            encoding: utf8
+#            path: classpath:/migrations/sql/1756215609_data.sql
